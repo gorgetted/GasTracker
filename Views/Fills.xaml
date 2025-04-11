@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GasTracker.Views.Fills"
+             Title="Fills">
+    <VerticalStackLayout>
+        <Label 
+     Text="Add Visit to Gas Station"
+     VerticalOptions="Center" 
+     HorizontalOptions="Center"/>
+        <!--
+        <HorizontalStackLayout
+                HorizontalOptions="FillAndExpand">
+        <Picker
+         Margin="10"
+         x:Name="VechilePicker"/>
+        <Button
+                Text="New Vechile"
+                x:Name="btnNewVechile"
+                Clicked="btnNewVechile_Clicked"/>
+        </HorizontalStackLayout>
+        -->
+
+        <Grid RowDefinitions="*" ColumnDefinitions="5*,1*">
+            
+            <Picker
+                Grid.Column="0"
+                 Margin="10"
+                 x:Name="VechilePicker"/>
+            <Button
+                Grid.Column="1"
+                Text="+"
+                x:Name="btnNewVechile"
+                Clicked="btnNewVechile_Clicked"/>
+        </Grid>
+
+        <HorizontalStackLayout>
+            <Label
+         x:Name="lblLocation"
+         Margin="10"/>
+            <Button
+         Text="Refresh"
+         x:Name="btnRefreshLocation"
+         Clicked="btnRefreshLocation_Clicked"/>
+        </HorizontalStackLayout>
+        <Entry
+     x:Name="entPrice"
+     Margin="10"/>
+        <Entry
+     Margin="10"/>
+        <Entry
+     Margin="10"/>
+        <Button
+     Margin="10"
+     Text="Add"
+            x:Name="btnAdd"
+     Clicked="btnAdd_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
