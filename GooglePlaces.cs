@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Linq;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Configuration;
+﻿using Newtonsoft.Json.Linq;
 
 namespace GasTracker {
 
     internal class GooglePlaces {
-        
+
         public static async Task<GasStation> GetNearestGasStationAsync(double latitude, double longitude) {
             var apiKey = MauiProgram.GOOGLE_API_KEY;
             var radius = 5000; // in meters (example: 1000m = 1km)

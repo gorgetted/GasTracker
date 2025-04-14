@@ -26,7 +26,7 @@
             <Picker
                 Grid.Column="0"
                  Margin="10"
-                 x:Name="VechilePicker"/>
+                 x:Name="pikVechile"/>
             <Button
                 Grid.Column="1"
                 Text="+"
@@ -36,24 +36,30 @@
 
         <HorizontalStackLayout>
             <Label
-         x:Name="lblLocation"
-         Margin="10"/>
+                x:Name="lblLocation"
+                Margin="10"/>
             <Button
-         Text="Refresh"
-         x:Name="btnRefreshLocation"
-         Clicked="btnRefreshLocation_Clicked"/>
+                 Text="Refresh"
+                 x:Name="btnRefreshLocation"
+                 Clicked="btnRefreshLocation_Clicked"/>
         </HorizontalStackLayout>
         <Entry
-     x:Name="entPrice"
-     Margin="10"/>
+            Keyboard="Numeric"
+            x:Name="entPricePer"
+            Placeholder="Price Per Gallon ex.$2.99"
+            Margin="10"/>
         <Entry
-     Margin="10"/>
+            x:Name="entTotalPrice"
+            Keyboard="Numeric"
+            Placeholder="Total Price ex.$30.33"
+            Margin="10"/>
         <Entry
-     Margin="10"/>
+            x:Name="entMileage"
+            Margin="10"/>
         <Button
-     Margin="10"
-     Text="Add"
+            Margin="10"
+            Text="Add"
             x:Name="btnAdd"
-     Clicked="btnAdd_Clicked"/>
+            Clicked="btnAdd_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

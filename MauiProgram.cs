@@ -1,15 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
-namespace GasTracker
-{
-    public static class MauiProgram
-    {
+namespace GasTracker {
+    public static class MauiProgram {
         public static string GOOGLE_API_KEY;
-        public static MauiApp CreateMauiApp()
-        {
+        public static MauiApp CreateMauiApp() {
             var builder = MauiApp.CreateBuilder();
-            
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts => {

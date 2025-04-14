@@ -8,5 +8,50 @@
             Text="Add a new Vehcile"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Entry
+            x:Name="entMake"
+            Placeholder="Make ex.Honda"/>
+        <Entry
+            x:Name="entModel"
+            Placeholder="Model ex.Civic"/>
+        <Entry
+            x:Name="entYear"
+            Keyboard="Numeric"
+            Placeholder="Year ex.2005"/>
+        <Entry
+            x:Name="entMileage"
+            Keyboard="Numeric"
+            Placeholder="Mileage ex. 50000"/>
+        <Button
+            Text="Add"
+            x:Name="btnAdd"
+            Clicked="btnAdd_Clicked"/>
+        <!--ID | MAKE | MODEL | YEAR |MILEAGE-->
+        <CollectionView 
+            x:Name="cvVehicles"
+            ItemsSource="{Binding Vehicles}">
+            <CollectionView.Header>
+                <Grid Padding="10" ColumnDefinitions="*,*,*,*,*">
+                    <Label Text="ID" FontAttributes="Bold" />
+                    <Label Text="Make" FontAttributes="Bold" Grid.Column="1" />
+                    <Label Text="Model" FontAttributes="Bold" Grid.Column="2" />
+                    <Label Text="Year" FontAttributes="Bold" Grid.Column="3" />
+                    <Label Text="Mileage" FontAttributes="Bold" Grid.Column="4" />
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" ColumnDefinitions="1*,2*,2*,1*,2*">
+                        <Label Text="{Binding Id}" Grid.Column="0" />
+                        <Label Text="{Binding Make}" Grid.Column="1"/>
+                        <Label Text="{Binding Model}" Grid.Column="2" />
+                        <Label Text="{Binding Year}" Grid.Column="3" />
+                        <Label Text="{Binding Mileage, StringFormat='{0:N0}'}" Grid.Column="4" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>

@@ -1,7 +1,8 @@
+using GasTracker.Models;
+
 namespace GasTracker.Views;
 
-public partial class Fills : ContentPage
-{
+public partial class Fills : ContentPage {
     private CancellationTokenSource _cancelTokenSource;
     private bool _isCheckingLocation;
     private Location _location;
@@ -9,6 +10,7 @@ public partial class Fills : ContentPage
     public Fills() {
         InitializeComponent();
         btnRefreshLocation_Clicked(this, null);
+        loadPicker();
     }
 
     public async Task GetCurrentLocation() {
@@ -54,5 +56,12 @@ public partial class Fills : ContentPage
 
     private async void btnNewVechile_Clicked(object sender, EventArgs e) {
         await Shell.Current.GoToAsync(nameof(GasTracker.Views.NewVehicle));
+    }
+
+    private async void loadPicker() {
+        List<Vehicle> loadedVehicles = await Backend.LocalStoarge.loadVehiclesAsync();
+        foreach( var vehicle in loadedVehicles) {
+            pikVechile.Items.Add(vehicle.ToString());
+        }
     }
 }
