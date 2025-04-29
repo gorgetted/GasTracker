@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace GasTracker {
+namespace GasTracker.Backend {
 
     internal class GooglePlaces {
 
@@ -68,10 +68,10 @@ namespace GasTracker {
         public string fullAddress;
 
         public Address() {
-            this.houseNumber = "1234";
-            this.street = "Street";
-            this.city = "City";
-            this.fullAddress = "1234 Street, City";
+            houseNumber = "1234";
+            street = "Street";
+            city = "City";
+            fullAddress = "1234 Street, City";
         }
 
         public override string ToString() {

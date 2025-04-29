@@ -1,3 +1,4 @@
+using GasTracker.Backend;
 using GasTracker.Models;
 
 namespace GasTracker.Views;
@@ -59,7 +60,7 @@ public partial class Fills : ContentPage {
     }
 
     private async void loadPicker() {
-        List<Vehicle> loadedVehicles = await Backend.LocalStoarge.loadVehiclesAsync();
+        List<Vehicle> loadedVehicles = await Backend.LocalStoarge.LoadVehiclesAsync();
         foreach( var vehicle in loadedVehicles) {
             pikVechile.Items.Add(vehicle.ToString());
         }
