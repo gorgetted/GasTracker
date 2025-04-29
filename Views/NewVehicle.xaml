@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="GasTracker.Views.NewVehicle"
              Title="NewVehicle">
     <VerticalStackLayout>
@@ -27,31 +28,37 @@
             x:Name="btnAdd"
             Clicked="btnAdd_Clicked"/>
         <!--ID | MAKE | MODEL | YEAR |MILEAGE-->
+
         <CollectionView 
             x:Name="cvVehicles"
             ItemsSource="{Binding Vehicles}">
             <CollectionView.Header>
-                <Grid Padding="10" ColumnDefinitions="*,*,*,*,*">
-                    <Label Text="ID" FontAttributes="Bold" />
-                    <Label Text="Make" FontAttributes="Bold" Grid.Column="1" />
-                    <Label Text="Model" FontAttributes="Bold" Grid.Column="2" />
-                    <Label Text="Year" FontAttributes="Bold" Grid.Column="3" />
-                    <Label Text="Mileage" FontAttributes="Bold" Grid.Column="4" />
+                <Grid Padding="10" ColumnDefinitions="2*,2*,1*,1*,1*">
+                    <Label Text="Make" FontAttributes="Bold" Grid.Column="0" />
+                    <Label Text="Model" FontAttributes="Bold" Grid.Column="1" />
+                    <Label Text="Year" FontAttributes="Bold" Grid.Column="2" />
+                    <Label Text="Mileage" FontAttributes="Bold" Grid.Column="3" />
+                    <Label Text="" FontAttributes="Bold" Grid.Column="4" />
                 </Grid>
             </CollectionView.Header>
-
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" ColumnDefinitions="1*,2*,2*,1*,2*">
-                        <Label Text="{Binding Id}" Grid.Column="0" />
-                        <Label Text="{Binding Make}" Grid.Column="1"/>
-                        <Label Text="{Binding Model}" Grid.Column="2" />
-                        <Label Text="{Binding Year}" Grid.Column="3" />
-                        <Label Text="{Binding Mileage, StringFormat='{0:N0}'}" Grid.Column="4" />
+                    <Grid Padding="10" ColumnDefinitions="2*,2*,1*,1*,1*" RowSpacing="4">
+                        <Label Text="{Binding Make}" Grid.Column="0"/>
+                        <Label Text="{Binding Model}" Grid.Column="1" />
+                        <Label Text="{Binding Year}" Grid.Column="2" />
+                        <Label Text="{Binding Mileage, StringFormat='{0:N0}'}" Grid.Column="3" />
+                        <ImageButton
+                            x:Name="btnDelete"
+                            Source="trash"
+                            Command="{Binding BindingContext.DeleteVehicleCommand, Source={x:Reference cvVehicles}}"
+                            CommandParameter="{Binding .}"
+                            Aspect="AspectFit"
+                            Grid.Column="4"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            </CollectionView>
+        </CollectionView>
 
     </VerticalStackLayout>
 </ContentPage>
